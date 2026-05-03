@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS raw.spotify_streaming_history_export (
+    id BIGSERIAL PRIMARY KEY,
+    played_at TIMESTAMPTZ NOT NULL,
+    ms_played INTEGER,
+    track_name TEXT,
+    artist_name TEXT,
+    album_name TEXT,
+    spotify_track_uri TEXT,
+    track_id TEXT,
+    platform TEXT,
+    country TEXT,
+    reason_start TEXT,
+    reason_end TEXT,
+    shuffle BOOLEAN,
+    skipped BOOLEAN,
+    offline BOOLEAN,
+    incognito_mode BOOLEAN,
+    source_file TEXT,
+    payload JSONB NOT NULL,
+    ingested_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    UNIQUE (played_at, spotify_track_uri, ms_played)
+);
