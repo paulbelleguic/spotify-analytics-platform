@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_recently_played
+    description: Cleaned staging view for Spotify recently played tracks.
+    columns:
+      - name: raw_id
+        tests:
+          - not_null
+          - unique
+      - name: played_at
+        tests:
+          - not_null
+      - name: track_id
+        tests:
+          - not_null
+
+  - name: stg_streaming_history_export
+    description: Cleaned staging view for Spotify Extended Streaming History export files.
+    columns:
+      - name: listening_id
+        tests:
+          - not_null
+          - unique
+      - name: played_at
+        tests:
+          - not_null
+
+  - name: stg_listening_history
+    description: Unified listening history from Spotify API and Extended Streaming History export.
+    columns:
+      - name: listening_id
+        tests:
+          - not_null
+          - unique
+      - name: played_at
+        tests:
+          - not_null

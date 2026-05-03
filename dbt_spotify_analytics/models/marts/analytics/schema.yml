@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_tracks
+    description: Track dimension built from Spotify listening events.
+    columns:
+      - name: track_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_artists
+    description: Artist dimension built from Spotify listening events.
+    columns:
+      - name: artist_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_albums
+    description: Album dimension built from Spotify listening events.
+    columns:
+      - name: album_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_time
+    description: Time dimension for Spotify listening events.
+    columns:
+      - name: time_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_listening_history
+    description: Fact table containing Spotify listening events.
+    columns:
+      - name: listening_id
+        tests:
+          - not_null
+          - unique
+      - name: track_id
+        tests:
+          - not_null

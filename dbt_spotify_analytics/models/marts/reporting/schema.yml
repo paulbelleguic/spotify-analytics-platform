@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: vw_listening_overview
+    description: High-level listening KPIs for dashboard overview cards.
+
+  - name: vw_top_tracks
+    description: Top listened tracks with play counts and listening duration.
+
+  - name: vw_top_artists
+    description: Top listened artists with play counts and listening duration.
+
+  - name: vw_listening_by_day
+    description: Daily listening activity for trend charts.
+
+  - name: vw_listening_by_hour
+    description: Listening activity aggregated by hour of day.
+
+  - name: vw_listening_heatmap
+    description: Listening activity by weekday and hour for heatmap visualizations.
+
+  - name: vw_listening_by_day_period
+    description: Listening activity by morning, afternoon, evening, and night.
+
+  - name: vw_songs_by_album_type
+    description: Track and play counts grouped by Spotify album type.
+
+  - name: vw_explicit_summary
+    description: Listening split between explicit and non-explicit tracks.
+
+  - name: vw_songs_by_year
+    description: Unique tracks and plays grouped by listening year.
+
+  - name: vw_avg_popularity_by_album_type
+    description: Average Spotify popularity grouped by album type.
+
+  - name: vw_avg_popularity_by_month
+    description: Average Spotify popularity by listening month.
+
+  - name: vw_avg_popularity_by_quarter
+    description: Average Spotify popularity by listening quarter.

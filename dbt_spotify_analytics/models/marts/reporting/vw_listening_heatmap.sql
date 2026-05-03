@@ -1,0 +1,15 @@
+{{ config(materialized='view', schema='analytics') }}
+
+SELECT
+    tm.day_of_week,
+    tm.day_name,
+    tm.hour AS listening_hour,
+    COUNT(*) AS play_count,
+    ROUND(SUM(f.played_ms) / 60000.0, 2) AS minutes_listened
+FROM {{ ref('fact_listening_history') }} f
+LEFT JOIN {{ ref('dim_time') }} tm
+    ON f.time_id = tm.time_id
+GROUP BY
+    tm.day_of_week,
+    tm.day_name,
+    tm.hour
